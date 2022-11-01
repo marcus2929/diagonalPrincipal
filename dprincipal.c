@@ -1,40 +1,18 @@
 #include <stdio.h>
-#include <stdlib.h>
-
-// Aluno: Marcus Vinicius Emanuel Pereira
-// Matrícula: 12121BSI244
-
-int main(){
-
-float vetor[20], aux;
+#define TAM 6
 
 
-
-    for(int i=0;i<20;i++)
-    {
-        printf("digite o numero na posicao [%i]: ", i+1);
-        scanf("%f", &vetor[i]);
+int main()
+{
+  float matriz[TAM][TAM], soma = 0;
+  for(int i = 0; i < TAM; i++){
+    for(int j = 0; j < TAM; j++){
+      printf("Digite o valor da posicao [%d][%d]: ", i, j);
+      scanf("%f", &matriz[i][j]);
+      if(j == i)
+        soma += matriz[i][j];
     }
-        for(int i=0;i<20;i++){
-        for(int j=i+1; j<20; j++){
-
-            if(vetor[i] < vetor[j]){
-
-            aux=vetor[i];
-            vetor[i]=vetor[j];
-            vetor[j]=aux;
-
-            }
-            }
-            }
-
-            printf("\n\nAqui temos a ordem decrescente: \n");
-            for(int i=0;i<20;i++){
-                printf("Posicao [%d]:  %.1lf\n  ", i+1, vetor[i]);
-            }
-
-
-    return 0;
-
-
+  }
+  printf("diagonal principal: %.2f\n", soma);
+  return 0;
 }
